@@ -19,7 +19,7 @@ def enVar(variable):
         else: # if user entered one or more than one environment variable name
                 for x in range(nVar):
                         x+=1
-                        if os.environ.get(variable[x].upper()):
+                        if os.environ.get(variable[x].upper()): # convertes to upper if user mistakenly enters lowecase
                                 print "%s : %s" %  (variable[x].upper(), os.environ.get(variable[x].upper()))
         	        else: print 'Make sure the Environment variable "%s" exists or spelled correctly.' % variable[x]
 
