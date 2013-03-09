@@ -1,4 +1,4 @@
-#!/usr/bin/env mpcpython
+#!/usr/bin/env python
 ################################
 __author__  = "Sanjeev"
 __version__ = 1.1
