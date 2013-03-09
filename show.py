@@ -2,7 +2,7 @@
 ################################
 __author__  = "Sanjeev"
 __version__ = 1.1
-## Branch: python3_ver2
+## Branch: pythonic
 ################################
 import sys
 import os
