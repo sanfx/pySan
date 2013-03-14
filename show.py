@@ -30,7 +30,12 @@ class Show(object):
                 if environment variable name is passed to the enVar function it returns its values.
                 """
                 if not variable:
-                        raise EmptyVariableError('The variable given is empty')
+                        print "No Environment variable/s passed. Do you want to print all(yes or no)?"
+                        choice = raw_input('>>')
+                        if choice in ['Yes', 'yes', 'y']:
+                                pass
+                        else:
+                                raise EmptyVariableError('The variable given is empty')
 
                 if not isinstance(variable, (tuple, list)):
                         raise NoListVariableError('The variable given is not itaratable')
