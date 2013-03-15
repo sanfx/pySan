@@ -1,0 +1,16 @@
+#!/usr/bin/env mpcpython
+import sys
+
+from mpc.pySan import show
+
+def main():
+	shoEnVa = show.Show()
+	# shoEnVa.printEnv()
+	shoEnVa.printEnv(sys.argv[1:])
+	# shoEnVa.printEnv(['USER'])
+	# shoEnVa.printEnv(['USER '])
+	# shoEnVa.printEnv([' USER'])
+	# shoEnVa.printEnv(['USE'])
+
+if __name__ == '__main__':
+	main()

@@ -1,8 +1,5 @@
 #!/usr/bin/env mpcpython
-################################
-__author__  = "Sanjeev"
-__version__ = 1.2
-################################
+
 import os
 import sys
 
@@ -19,42 +16,50 @@ class NoListVariableError(Exception):
 
 
 class Show(object):
+
 	def __init__(self):
 		pass
 
 	def environment_variables(self,variable=None):
 		"""
-		This function returns all the environment variable set on the machine or in active project.
 		if environment variable name is passed to the enVar function it returns its values.
 		"""
-
-
 		if not isinstance(variable, (tuple, list)):
-			raise NoListVariableError('The variable given is not itaratable')
+			raise NoListVariableError('The variable given is not iteratable')
 
-		nVar = len(variable)
 		returnList = []
 
-		# if not any(variable): # if user entered no environment variable name
-		# 	for index, each in enumerate(sorted(os.environ.iteritems())):
-		# 		print "%s %s: %s" %(index, each[0], each[1])
-		# else: # if user entered one or more than one environment variable name
-		for var in variable:
-			if os.environ.get(var.upper()): # convertes to upper if user mistakenly enters lowecase
-				print "%s : %s" % (var.upper(), os.environ.get(var.upper()))
+		for index, var in enumerate(variable):
+			try: # converts to upper if user mistakenly enters lowecase
+				print "%s %s : %s" % (index, var, os.environ[var])
 				returnList.append(var)
-			else: 
+			except Exception, e: 
 				print 'Make sure the Environment variable "%s" exists or spelled correctly.' % var
+
 		return returnList
 
 	def printEnv(self, variable=None):
+		"""This function returns all the environment variable set on the machine or in active project.
+		"""
 		if not variable:
 			print "No Environment variable/s passed. Do you want to print all %s in total(yes or no)?" % len(os.environ)
 			choice = raw_input('>>')
 			if choice in ['Yes', 'yes', 'y']:
 				self.environment_variables(os.environ.keys())
 			else:
-				raise EmptyVariableError('No Environment variable given passed.')
-				#return
+				#raise EmptyVariableError('No Environment variable given passed.')
+				return
 		else:
 			self.environment_variables(variable)
+
+def main():
+	shoEnVa = Show()
+	# shoEnVa.printEnv()
+	shoEnVa.printEnv(sys.argv[1:])
+	# shoEnVa.printEnv(['USER'])
+	# shoEnVa.printEnv(['USER '])
+	# shoEnVa.printEnv([' USER'])
+	# shoEnVa.printEnv(['USE'])
+
+if __name__ == '__main__':
+	main()
