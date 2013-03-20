@@ -1,4 +1,4 @@
-#!/usr/bin/env mpcpython
+
 
 import os
 import sys
@@ -51,15 +51,3 @@ class Show(object):
 				return
 		else:
 			self.environment_variables(variable)
-
-def main():
-	shoEnVa = Show()
-	# shoEnVa.printEnv()
-	shoEnVa.printEnv(sys.argv[1:])
-	# shoEnVa.printEnv(['USER'])
-	# shoEnVa.printEnv(['USER '])
-	# shoEnVa.printEnv([' USER'])
-	# shoEnVa.printEnv(['USE'])
-
-if __name__ == '__main__':
-	main()
