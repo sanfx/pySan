@@ -1,11 +1,14 @@
 #!/usr/bin/env mpcpython
 import sys
 
-from mpc.pySan import show
-
+try:
+	from mpc.pySan import show
+except:
+	sys.path.append("e:\projects\pySan\python")
+	import show
 def main():
 	shoEnVa = show.Show()
 	shoEnVa.printEnv(sys.argv[1:])
 
 if __name__ == '__main__':
-	main()
+	sys.exit(main())

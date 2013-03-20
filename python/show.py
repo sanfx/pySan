@@ -51,3 +51,7 @@ class Show(object):
 				return
 		else:
 			self.environment_variables(variable)
+# import sys
+
+# showEnVar = Show()
+# showEnVar.printEnv(sys.argv[1:])
