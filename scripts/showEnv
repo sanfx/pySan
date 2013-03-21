@@ -1,4 +1,5 @@
 #!/usr/bin/env mpcpython
+import argparse
 import sys
 
 try:
@@ -6,9 +7,15 @@ try:
 except:
 	sys.path.append("e:\projects\pySan\python")
 	import show
+
 def main():
+	parser = argparse.ArgumentParser("Shows Environment Variables and values")
+	defLst= sys.argv[1:]
+	parser.add_argument('-ev',nargs="*",help='pass one or more environment variable to displays its values', default=defLst )
+	args = parser.parse_args()
+
 	shoEnVa = show.Show()
-	shoEnVa.printEnv(sys.argv[1:])
+	shoEnVa.printEnv(args.ev)
 
 if __name__ == '__main__':
 	sys.exit(main())
