@@ -49,6 +49,17 @@ class Show(object):
 				return
 		else:
 			self.environment_variables(variable)
+
+
+def izip(*iterables):
+	""" izip available in Python 3 backporting for python 2.6
+	# izip('ABCD', 'xy') --> Ax By
+	"""
+    	iterators = map(iter, iterables)
+    	while iterators:
+    		yield tuple(map(next, iterators))
+
+
 # import sys
 
 # showEnVar = Show()
