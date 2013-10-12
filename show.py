@@ -1,4 +1,4 @@
-#!/usr/bin/env mpcpython
+#!/usr/bin/env python
 ################################
 ## Sanjeev
 ## Version: 1.0
